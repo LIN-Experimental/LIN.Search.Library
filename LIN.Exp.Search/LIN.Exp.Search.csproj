@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+	  <LangVersion>12</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LIN Services\Tipos\LIN.Modules\LIN.Modules.csproj" />
+    <ProjectReference Include="..\..\..\LIN Services\Tipos\LIN.Types.Exp.Search\LIN.Types.Exp.Search.csproj" />
+  </ItemGroup>
+
+</Project>

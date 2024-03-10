@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace LIN.Exp.Search;
+﻿namespace LIN.Exp.Search;
 
 
 public class Client
 {
+
 
     /// <summary>
     /// Llave de Weather.

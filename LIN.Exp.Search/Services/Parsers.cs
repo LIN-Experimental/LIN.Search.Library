@@ -45,7 +45,10 @@ internal class Parsers
                 string link = linkNode.GetAttributeValue("href", "");
                 string snippet = snippetNode.InnerText.Trim();
 
-                results.Add(new SearchResult(CleanHtml(title), link, CleanHtml(snippet)));
+                results.Add(new SearchResult(CleanHtml(title), link, CleanHtml(snippet))
+                {
+                    ResultType = Types.Exp.Search.Enums.ResultType.Web
+                });
             }
         }
 

@@ -20,8 +20,8 @@ internal class Bing
         // Parámetros.
         url = LIN.Modules.Web.AddParameters(url, new()
         {
-            {"q", value },
-            {"setlang", "es" }
+            { "q", value },
+            { "setlang", "es" }
         });
 
         // Respuesta HTTP.

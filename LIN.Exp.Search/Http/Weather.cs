@@ -1,4 +1,6 @@
-﻿namespace LIN.Exp.Search.Http;
+﻿using System;
+
+namespace LIN.Exp.Search.Http;
 
 
 internal class Weather
@@ -15,7 +17,10 @@ internal class Weather
         string apiUrl = $"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={Client.WeatherKey}&units=metric";
 
         // Cliente.
-        using HttpClient client = new();
+        using HttpClient client = new()
+        {
+            Timeout = TimeSpan.FromSeconds(5)
+    };
 
         try
         {

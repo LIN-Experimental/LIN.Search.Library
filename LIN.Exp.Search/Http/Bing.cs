@@ -1,4 +1,6 @@
-﻿namespace LIN.Exp.Search.Http;
+﻿using System;
+
+namespace LIN.Exp.Search.Http;
 
 
 internal class Bing
@@ -15,7 +17,10 @@ internal class Bing
         string url = "https://www.bing.com/search";
 
         // Cliente.
-        HttpClient client = new();
+        HttpClient client = new()
+        {
+            Timeout = TimeSpan.FromSeconds(5)
+        };
 
         // Parámetros.
         url = LIN.Modules.Web.AddParameters(url, new()

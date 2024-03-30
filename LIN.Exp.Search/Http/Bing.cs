@@ -13,30 +13,22 @@ internal class Bing
     public static async Task<List<SearchResult>> Search(string value)
     {
 
-        // Url base.
-        string url = "https://www.bing.com/search";
-
         // Cliente.
-        HttpClient client = new()
+        Global.Http.Services.Client client = new()
         {
-            Timeout = TimeSpan.FromSeconds(5)
+            BaseAddress = new Uri("https://www.bing.com/search"),
+            TimeOut = 7
         };
 
         // Parámetros.
-        url = LIN.Modules.Web.AddParameters(url, new()
-        {
-            { "q", value },
-            { "setlang", "es" }
-        });
+        client.AddParameter("q", value.ToLower());
+        client.AddParameter("setlang","es");
 
-        // Respuesta HTTP.
-        var response = await client.GetAsync(url);
-
-        // Contenido.
-        string content = await response.Content.ReadAsStringAsync();
+        // Respuesta.
+        var response = await client.Get();
 
         // Convertir a objeto.
-        var searchResults = Services.Parsers.Convert(content);
+        var searchResults = Services.Parsers.Convert(response);
 
         // Retornar.
         return searchResults;
@@ -44,8 +36,8 @@ internal class Bing
     }
 
 
-    
-    
+
+
 
 
 }

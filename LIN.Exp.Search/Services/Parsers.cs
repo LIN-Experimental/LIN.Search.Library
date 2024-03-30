@@ -1,4 +1,6 @@
-﻿namespace LIN.Exp.Search.Services;
+﻿using System;
+
+namespace LIN.Exp.Search.Services;
 
 
 internal class Parsers
@@ -28,31 +30,41 @@ internal class Parsers
     public static List<SearchResult> Convert(string html)
     {
 
-        HtmlDocument doc = new();
-        doc.LoadHtml(html);
-
-        var results = new List<SearchResult>();
-
-        foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//li[@class='b_algo']"))
+        try
         {
-            var titleNode = node.SelectSingleNode(".//h2");
-            var linkNode = node.SelectSingleNode(".//a[@href]");
-            var snippetNode = node.SelectSingleNode(".//p");
+            HtmlDocument doc = new();
+            doc.LoadHtml(html);
 
-            if (titleNode != null && linkNode != null && snippetNode != null)
+            var results = new List<SearchResult>();
+
+            foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//li[@class='b_algo']"))
             {
-                string title = titleNode.InnerText.Trim();
-                string link = linkNode.GetAttributeValue("href", "");
-                string snippet = snippetNode.InnerText.Trim();
+                var titleNode = node.SelectSingleNode(".//h2");
+                var linkNode = node.SelectSingleNode(".//a[@href]");
+                var snippetNode = node.SelectSingleNode(".//p");
 
-                results.Add(new SearchResult(CleanHtml(title), link, CleanHtml(snippet))
+                if (titleNode != null && linkNode != null && snippetNode != null)
                 {
-                    ResultType = Types.Exp.Search.Enums.ResultType.Web
-                });
-            }
-        }
+                    string title = titleNode.InnerText.Trim();
+                    string link = linkNode.GetAttributeValue("href", "");
+                    string snippet = snippetNode.InnerText.Trim();
 
-        return results;
+                    results.Add(new SearchResult(CleanHtml(title), link, CleanHtml(snippet))
+                    {
+                        ResultType = Types.Exp.Search.Enums.ResultType.Web
+                    });
+                }
+            }
+
+            return results;
+
+        }
+        catch (Exception)
+        {
+
+        }
+        return [];
+
     }
 
 

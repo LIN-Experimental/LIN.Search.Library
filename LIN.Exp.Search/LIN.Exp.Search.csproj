@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
+    <PackageReference Include="Global.Http" Version="1.1.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.60" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\LIN Services\Tipos\LIN.Modules\LIN.Modules.csproj" />
     <ProjectReference Include="..\..\..\LIN Services\Tipos\LIN.Types.Exp.Search\LIN.Types.Exp.Search.csproj" />
   </ItemGroup>
 

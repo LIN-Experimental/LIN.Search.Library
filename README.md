@@ -2,7 +2,6 @@
 
 Esta biblioteca permite conectar con los servicios de tiempo y bing.
 
-
 ## Bing
 
 Permite obtener los resultados de busqueda de Bing y mapearlos con .NET

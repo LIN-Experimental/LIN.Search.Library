@@ -31,9 +31,7 @@ internal class WeatherModelBuilder
             Wind = new()
             {
                 Speed = data.Wind.Speed
-            },
-
-
+            }
         };
 
 

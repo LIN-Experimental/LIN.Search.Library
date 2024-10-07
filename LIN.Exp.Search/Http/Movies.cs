@@ -11,9 +11,8 @@ internal class Movies
     {
 
         // Cliente.
-        Global.Http.Services.Client client = new()
+        Global.Http.Services.Client client = new("http://www.omdbapi.com")
         {
-            BaseAddress = new Uri("http://www.omdbapi.com"),
             TimeOut = 7
         };
 

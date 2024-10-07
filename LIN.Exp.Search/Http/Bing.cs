@@ -14,9 +14,8 @@ internal class Bing
     {
 
         // Cliente.
-        Global.Http.Services.Client client = new()
+        Global.Http.Services.Client client = new("https://www.bing.com/search")
         {
-            BaseAddress = new Uri("https://www.bing.com/search"),
             TimeOut = 7
         };
 

@@ -1,9 +1,7 @@
 ﻿namespace LIN.Exp.Search;
 
-
 public class Client
 {
-
 
     /// <summary>
     /// Llave de Weather.
@@ -15,7 +13,6 @@ public class Client
     /// Llave de movies.
     /// </summary>
     internal static string MoviesKey {  get; set; } = string.Empty;
-
 
 
     /// <summary>
@@ -35,7 +32,6 @@ public class Client
         return final;
 
     }
-
 
 
     /// <summary>

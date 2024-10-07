@@ -1,7 +1,4 @@
-﻿using System;
-
-namespace LIN.Exp.Search.Http;
-
+﻿namespace LIN.Exp.Search.Http;
 
 internal class Weather
 {
@@ -14,10 +11,9 @@ internal class Weather
     {
 
         // Cliente.
-        Global.Http.Services.Client client = new()
+        Global.Http.Services.Client client = new("http://api.openweathermap.org/data/2.5/weather")
         {
-            BaseAddress = new Uri("http://api.openweathermap.org/data/2.5/weather"),
-            TimeOut = 7
+            TimeOut = 20
         };
 
         // Parámetros.
@@ -26,12 +22,11 @@ internal class Weather
         client.AddParameter("units", "metric");
 
         // Respuesta.
-        var response = await client.Get<WeatherData>();
+        WeatherData? response = await client.Get<WeatherData>();
 
         // Retornar.
         return response;
 
     }
-
 
 }
